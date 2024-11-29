@@ -9,8 +9,11 @@
      "esModuleInterop": true,
      "moduleResolution": "node",
      "outDir": "./build",
+     "typeRoots": ["./node_modules/@types", "./src/types"],
+     "types": ["node"],
      "emitDecoratorMetadata": true,
      "experimentalDecorators": true,
      "sourceMap": true
-  }
+  },
+  "include": ["src/**/*"]
 }

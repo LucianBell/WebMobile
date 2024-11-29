@@ -4,6 +4,8 @@ import { AppDataSource } from "./src/data-source";
 import rockerRoutes from './src/routes/rockerRoutes'
 import bandRoutes from './src/routes/bandRoutes'
 import healthRoutes from './src/routes/healthRoutes'
+import userRoutes from './src/routes/userRoutes'
+import protectedRoutes from './src/routes/protectedRoutes'
 
 const app = express();
 app.use(express.json())
@@ -16,7 +18,9 @@ AppDataSource.initialize().then(() => {
     app.use('/webmob/', rockerRoutes);
     app.use('/webmob/', bandRoutes);
     app.use('/webmob/', healthRoutes)
-    
+    app.use("/webmob/", userRoutes);
+    app.use("/webmob/", protectedRoutes)
+
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });

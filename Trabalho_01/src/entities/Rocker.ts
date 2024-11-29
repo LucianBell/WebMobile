@@ -24,6 +24,10 @@ export class Rocker {
     @Column({ nullable: true })
     biography: string;
 
+    // Explicitly define bandId to access it directly
+    @Column({ nullable: true })
+    bandId: number;
+
     @ManyToOne(() => Band, (band) => band.members)
     band: Band;
 }
