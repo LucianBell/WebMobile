@@ -16,7 +16,8 @@ export default function Rock_Navbar() {
           <Nav.Link href="/bands" className='hover:text-red-600 transition duration-200 uppercase'>Bands</Nav.Link>
           <Nav.Link href="/rockstars" className='mx-3 hover:text-red-600 transition duration-200 uppercase'>Rockstars</Nav.Link>
           <Nav.Link href="/add" className=' mr-4 hover:text-red-600 transition duration-200 uppercase'>Add Info</Nav.Link>
-          <Nav.Link href="/doggo" className='hover:text-red-600 transition duration-200 uppercase'>Doggo</Nav.Link>
+          <Nav.Link href="/doggo" className='mr-4 hover:text-red-600 transition duration-200 uppercase'>Doggo</Nav.Link>
+          <Nav.Link href="/sobre" className='hover:text-red-600 transition duration-200 uppercase'>Sobre Mim</Nav.Link>
           <Nav.Link href="/login" className='ml-4 bg-red-600 p-2 rounded hover:scale-110 transition duration-200'>LOGIN 🤘</Nav.Link>
         </Container>
       </Navbar>

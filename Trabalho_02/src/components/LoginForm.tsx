@@ -19,12 +19,17 @@ export default function LoginForm() {
         setError(null);
 
         try {
+            // Fazendo a requisição de login para o servidor
             const response = await axios.post('http://localhost:4000/webmob/user/login', { username, password });
             const { token } = response.data;
 
+            // Armazenando o token no localStorage
             localStorage.setItem('token', token);
 
-            
+            // Exibindo o token no console (para fins de depuração)
+            console.log('Token gerado:', token);
+
+            // Redirecionando para a página de boas-vindas
             router.push('/welcome');
         } catch (error) {
             console.error('Login failed:', error);

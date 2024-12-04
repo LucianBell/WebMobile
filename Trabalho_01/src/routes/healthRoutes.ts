@@ -1,8 +1,8 @@
 import express from 'express'
-import {resultCheck} from '../controllers/healthCheckController'
+import {healthCheck} from '../controllers/healthCheckController'
 
 const router = express.Router()
 
-router.get('/healthcheck', resultCheck)
+router.get('/healthcheck', healthCheck)
 
 export default router

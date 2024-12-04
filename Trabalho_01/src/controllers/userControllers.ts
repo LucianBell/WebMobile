@@ -46,24 +46,16 @@ export const login = async (req: Request, res: Response): Promise<Response> => {
     }
 
     try {
-        const userRepository = AppDataSource.getRepository(User);
+        // Verificar se o username e password são exatamente os permitidos
+        if (username === "aluno@teste.com" && password === "teste") {
+            // Gerar um token JWT
+            const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: "1h" });
 
-        // Find the user by username
-        const user = await userRepository.findOne({ where: { username } });
-        if (!user) {
-            return res.status(401).json({ message: "Invalid credentials" });
+            return res.status(200).json({ message: "Login successful", token });
         }
 
-        // Compare the password
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
-            return res.status(401).json({ message: "Invalid credentials" });
-        }
-
-        // Generate a JWT token
-        const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: "1h" });
-
-        return res.status(200).json({ token });
+        // Caso as credenciais não correspondam
+        return res.status(401).json({ message: "Invalid credentials" });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Internal server error" });
